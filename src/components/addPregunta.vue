@@ -1,6 +1,6 @@
 <template>
 <div class="container"><div class="row"><div class="col">  <form>
-    <div class="form-group" @submit.prevent="">
+    <div class="form-group" @submit.prevent="sendPregunta()">
       <label for="Tema">Tema</label>
       <input
         type="text"
