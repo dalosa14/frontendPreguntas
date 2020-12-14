@@ -3,7 +3,7 @@
     <div class="form-group" @submit.prevent="">
       <label for="Tema">Tema</label>
       <input
-        type="email"
+        type="text"
         class="form-control"
         id="Tema"
         placeholder="Introduce el tema"
@@ -39,7 +39,7 @@ export default {
   name: "addpregunta",
   data() {
     return {
-      temas: ["sexo", "drogas"],
+      temas: [],
       url: "http://161.97.116.9:3000/preguntas",
       pregunta: {
         tema: "",
@@ -63,6 +63,9 @@ export default {
       }
     },
   },
+  mounted(){
+    this.getTemas()
+  }
 };
 </script>
 
