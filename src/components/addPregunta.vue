@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       temas: ["sexo", "drogas"],
-      url: "www.refugepvp.eu/preguntas",
+      url: "http://161.97.116.9:3000/preguntas",
       pregunta: {
         tema: "",
         texto: "",
