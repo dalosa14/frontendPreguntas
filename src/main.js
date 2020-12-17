@@ -3,5 +3,6 @@ import VueAxios from 'vue-axios'
 import { createApp } from 'vue'
 import App from './App.vue'
 
-let  app =createApp(App).mount('#app')
-app.use(VueAxios,axios)
+let  app =createApp(App)
+app.use(VueAxios, axios)
+app.mount('#app')

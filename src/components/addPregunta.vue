@@ -1,13 +1,13 @@
 <template>
 <div class="container"><div class="row"><div class="col">  <form>
-    <div class="form-group" @submit.prevent="sendPregunta()">
+    <div class="form-group" >
       <label for="Tema">Tema</label>
       <input
         type="text"
         class="form-control"
         id="Tema"
         placeholder="Introduce el tema"
-        v-model="pregunta.tema"
+        v-model="pregunta.Tema"
       />
     </div>
         <div>
@@ -25,12 +25,12 @@
         type="text"
         class="form-control"
         id="Pregunta"
-        v-model="pregunta.text"
+        v-model="pregunta.Pregunta"
         placeholder="Pregunta"
       />
     </div>
 
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button  @click="sendPregunta()" class="btn btn-primary">Enviar</button>
   </form></div></div></div>
 </template>
 
@@ -40,10 +40,10 @@ export default {
   data() {
     return {
       temas: [],
-      url: "http://161.97.116.9:3000/preguntas",
+      url: "http://127.0.0.1:3000/preguntas",
       pregunta: {
-        tema: "",
-        texto: "",
+        Tema: "",
+        Pregunta: "",
       },
     };
   },
@@ -51,16 +51,18 @@ export default {
     async sendPregunta() {
       let response = await this.axios.post(`${this.url}/add`, this.pregunta);
       if (response.data) {
-        alert("pregunta enviada");
-      } else {
-        alert("error");
-      }
+        return alert("pregunta enviada");
+      } 
+       return  alert("error");
+      
     },
     async getTemas() {
       let response = await this.axios.get(`${this.url}/topics`);
       if (response.data) {
-        this.temas = response.data.msg;
-      }
+        return this.temas = response.data.msg
+      } 
+       return  alert("error");
+      
     },
   },
   mounted(){
