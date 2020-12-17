@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       temas: [],
-      url: "http://127.0.0.1:3000/preguntas",
+      url: "http://www.refugepvp.eu:3000/preguntas",
       pregunta: {
         Tema: "",
         Pregunta: "",
@@ -51,6 +51,7 @@ export default {
     async sendPregunta() {
       let response = await this.axios.post(`${this.url}/add`, this.pregunta);
       if (response.data) {
+        this.getTemas()
         return alert("pregunta enviada");
       } 
        return  alert("error");
